@@ -136,7 +136,8 @@ class ThesisClassLoader(Dataset):
          if torch.is_tensor(idx):
              idx = idx.tolist()
          return self.data[idx], self.labels[idx]
-# example call with differnt length sequences:
+
+# example call with different length sequences:
 loader = ThesisClassLoader(df, vocab)
 for data, labels, lens in DataLoader(loader, batch_size=2,
                 collate_fn=SequencePadder(loader.word2idx['<pad>'])):
